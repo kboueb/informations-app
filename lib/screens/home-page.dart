@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * .01,),
@@ -61,11 +61,62 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
 
                 // colorList: colorList,
               ),
+              const SizedBox(height: 50,),
+              Card(
+                child: Column(
+                  children: [
+                    ReusableRow(title: "Total", value: '20',),
+                    Divider(height: 1, color: Colors.grey),
+                    ReusableRow(title: "Total", value: '20',),
+                    Divider(height: 1, color: Colors.grey),
+                    ReusableRow(title: "Total", value: '20',),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 30,),
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.green.shade700,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Center(
+                  child: Text('Track data'),
+                ),
+              ),
+
             ],
           ),
         ),
 
       ),
+    );
+  }
+}
+
+
+
+class ReusableRow extends StatelessWidget {
+  String title, value;
+  ReusableRow({Key? key, required this.title, required this.value}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(title),
+              Text(value),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
