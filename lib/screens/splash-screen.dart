@@ -20,6 +20,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   )..repeat();
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -32,7 +39,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
